@@ -3,18 +3,18 @@ package com.xworkz.xworkzapp.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import com.xworkz.xworkzapp.dto.InstaDTO;
+
+import single.SingleTon;
 
 public class InstaDAOImpli implements InstaDAO {
 
 	public void saveData(InstaDTO dto) {
 
-		SessionFactory sessionFactory = null;
 		Session session = null;
 		try {
-			sessionFactory = new Configuration().configure().buildSessionFactory();
+			SessionFactory sessionFactory = SingleTon.getSessionFactory();
 			session = sessionFactory.openSession();
 			session.beginTransaction();
 			session.save(dto);
@@ -29,20 +29,14 @@ public class InstaDAOImpli implements InstaDAO {
 				System.out.println("connection closed");
 			} else
 				System.out.println("connection not closesd");
-			if (sessionFactory != null) {
-				sessionFactory.close();
-				System.out.println("connection closed");
-			} else
-				System.out.println("connection not closed");
 		}
 
 	}
 
 	public void getData() {
-		SessionFactory sessionFactory = null;
 		Session session = null;
 		try {
-			sessionFactory = new Configuration().configure().buildSessionFactory();
+			SessionFactory sessionFactory = SingleTon.getSessionFactory();
 			session = sessionFactory.openSession();
 			InstaDTO dto = session.get(InstaDTO.class, 3);
 			System.out.println(dto);
@@ -54,13 +48,67 @@ public class InstaDAOImpli implements InstaDAO {
 				System.out.println("connection closed");
 			} else
 				System.out.println("connection not closesd");
-			if (sessionFactory != null) {
-				sessionFactory.close();
-				System.out.println("connection closed");
-			} else
-				System.out.println("connection not closed");
 		}
 
 	}
+
+	
+	
+	@Override
+	public void updataInstaData() {
+
+		Session session = null;
+		try {
+			SessionFactory sessionFactory = SingleTon.getSessionFactory();
+			session = sessionFactory.openSession();
+			
+			InstaDTO dto = session.get(InstaDTO.class, 1);
+			dto.setType("private");
+			
+			Transaction transaction = session.beginTransaction();
+			session.saveOrUpdate(dto);
+			transaction.commit();
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+				System.out.println("session connection closed");
+			} else {
+				System.out.println("session connection not closed");
+			}
+		}
+	}
+
+	@Override
+	public void deleteselectedData() {
+		Session session = null;
+		Transaction transaction =null;
+		try {
+			
+		SessionFactory sessionFactory = single.SingleTon.getSessionFactory();
+		 session = sessionFactory.openSession();
+		 InstaDTO dto = session.get(InstaDTO.class, 1);
+		 transaction = session.beginTransaction();
+		 session.delete(dto);
+		    transaction.commit();
+		}catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		}	finally {
+			if (session != null) {
+				session.close();
+				System.out.println("session connection closed");
+			} else {
+				System.out.println("session connection not closed");
+			}
+			SingleTon.close();
+			
+	}
+		
+	}
+	
+
 
 }
