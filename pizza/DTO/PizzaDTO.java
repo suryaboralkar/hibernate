@@ -46,7 +46,6 @@ public class PizzaDTO {
 	
 	public PizzaDTO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 

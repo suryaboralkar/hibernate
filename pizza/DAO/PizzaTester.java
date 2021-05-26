@@ -9,9 +9,11 @@ public class PizzaTester {
 	public static void main(String[] args) {
 		PizzaService impli = new PizzaServieImpli();
 		
-		PizzaDTO dto = new PizzaDTO("corn", "hyderabad", 80, true, "regular", "veg");
+		PizzaDTO dto = new PizzaDTO("corncheese", "hyderabad", 80, true, "regular", "veg");
 		impli.FetchData();
-		//impli2.validatePizzaData(dto);
+		//impli.validatePizzaData(dto);
+		//impli.validateUpdate();
+		//impli.deleteData();
 	}
 
 }
