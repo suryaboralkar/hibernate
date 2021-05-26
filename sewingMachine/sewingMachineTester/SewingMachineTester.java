@@ -1,10 +1,10 @@
-package com.xworkz.sewingMachine.sewingMachineTester;
+package com.xworkz.xworkzapp.sewingMachineTester;
 
-import com.xworkz.sewingMachine.dao.SewingMachineDAO;
-import com.xworkz.sewingMachine.dao.SewingMachineDAOImpli;
-import com.xworkz.sewingMachine.dao.service.SewingMachineService;
-import com.xworkz.sewingMachine.dao.service.SewingMachineServiceImpli;
-import com.xworkz.sewingMachine.dto.SewingMachineDTO;
+import com.xworkz.xworkzapp.dao.SewingMachineDAO;
+import com.xworkz.xworkzapp.dao.SewingMachineDAOImpli;
+import com.xworkz.xworkzapp.dao.service.SewingMachineService;
+import com.xworkz.xworkzapp.dao.service.SewingMachineServiceImpli;
+import com.xworkz.xworkzapp.dto.SewingMachineDTO;
 
 public class SewingMachineTester {
 

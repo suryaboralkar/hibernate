@@ -1,6 +1,6 @@
-package com.xworkz.sewingMachine.dao.service;
+package com.xworkz.xworkzapp.dao.service;
 
-import com.xworkz.sewingMachine.dto.SewingMachineDTO;
+import com.xworkz.xworkzapp.dto.SewingMachineDTO;
 
 public interface SewingMachineService {
 	

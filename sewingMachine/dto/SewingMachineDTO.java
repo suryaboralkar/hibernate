@@ -1,4 +1,4 @@
-package com.xworkz.sewingMachine.dto;
+package com.xworkz.xworkzapp.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

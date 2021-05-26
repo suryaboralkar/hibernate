@@ -1,8 +1,8 @@
-package com.xworkz.sewingMachine.dao.service;
+package com.xworkz.xworkzapp.dao.service;
 
-import com.xworkz.sewingMachine.dao.SewingMachineDAO;
-import com.xworkz.sewingMachine.dao.SewingMachineDAOImpli;
-import com.xworkz.sewingMachine.dto.SewingMachineDTO;
+import com.xworkz.xworkzapp.dao.SewingMachineDAO;
+import com.xworkz.xworkzapp.dao.SewingMachineDAOImpli;
+import com.xworkz.xworkzapp.dto.SewingMachineDTO;
 
 public class SewingMachineServiceImpli implements SewingMachineService {
 	SewingMachineDAO impli = new SewingMachineDAOImpli();
