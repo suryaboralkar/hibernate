@@ -39,21 +39,21 @@ public class PizzaServieImpli implements PizzaService {
 	}
 
 	@Override
-	public void FetchData() {
-		dao.getPizzaData();
+	public void FetchData(int n) {
+		dao.getPizzaData(n);
 		System.out.println("this is varified data");
 	}
 
 	@Override
-	public void validateUpdate() {
+	public void validateUpdate(int n) {
 		
-		dao.updatePizzaData();
+		dao.updatePizzaData(n);
 		System.out.println("data updated sucessfully");
 	}
 
 	@Override
-	public void deleteData() {
-		dao.deleteSelectedData();
+	public void deleteData(int n) {
+		dao.deleteSelectedData(n);
 		System.out.println("data deleted sucessfully");
 		
 	}
