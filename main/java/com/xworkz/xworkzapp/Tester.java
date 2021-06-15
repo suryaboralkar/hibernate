@@ -10,7 +10,12 @@ public class Tester {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext(spring);
 		Bio bio = context.getBean(Bio.class);
-		System.out.println(bio);
+		System.out.println(bio.hashCode());
+		Bio bio1 = context.getBean(Bio.class);
+		System.out.println(bio1.hashCode());
+
+		Bio bio2 = context.getBean(Bio.class);
+		System.out.println(bio2.hashCode());
 
 	}
 
