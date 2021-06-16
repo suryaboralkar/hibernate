@@ -1,27 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
-
-	<bean class="com.xworkz.xworkzapp.Bio" id="bio" scope="prototype">
-		<constructor-arg name="name" value="${name}"></constructor-arg>
-
-		<constructor-arg name="address" value="bidar"></constructor-arg>
-		<property name="age" value="24"></property>
-
+	<bean class="com.xworkz.xworkzapp.data.Address" id="address">
+		<constructor-arg name="location" value="marathalli" />
+		<constructor-arg name="buildingNo" value="A51" />
 	</bean>
-
-
-
-
-
-	<bean
-		class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
-		<property name="location" value="Bio.properties"></property>
+	<bean class="com.xworkz.xworkzapp.data.SuperMarket" id="market">
+	<constructor-arg name="name" value="Dmart"/>
+		<constructor-arg name="address" ref="address"/>
+		<constructor-arg name="noOfWorkers" value="25"/>
+		<constructor-arg name="noOfCounters" value="8"/>
+	
 	</bean>
+	<bean class="com.xworkz.xworkzapp.data.Alcohol" id="alcohol">
+	<constructor-arg name="content" value="ethanol,isopropyl"/>
+	<constructor-arg name="alcoholPercentage" value="60%"/>
+	
+	</bean>
+<bean class="com.xworkz.xworkzapp.data.Sanitizer" id="sani">
+<constructor-arg name="name" value="Floh sharp"/>
+<constructor-arg name="price" value="500"/>
+<constructor-arg name="quantity" value="5Liter"/>
+<constructor-arg name="alcohol" ref="alcohol"/>
+
+</bean>
+<bean class="com.xworkz.xworkzapp.data.Center" id="center">
+<constructor-arg name="name" value="camp"/>
+<constructor-arg name="location" value="area"/>
+<constructor-arg name="noOfWorkers" value="6"/>
+<constructor-arg name="vaccineName" value="covidShield"/></bean>
+<bean class="com.xworkz.xworkzapp.data.VaccinationCenter" id="vc">
+<constructor-arg name="centerName" ref="center"/></bean>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </beans>
